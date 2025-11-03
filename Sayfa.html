@@ -309,31 +309,47 @@
         }
         .label-container, 
         .control-container {
-          flex-wrap: wrap;
+          display: flex;
+          flex-direction: column;
           width: 100%;
           height: auto;
         }
         .kutu-container { 
+          display: flex;
+          flex-direction: column;
           justify-content: center;
           align-items: center;
-          margin-right: 0;
+          margin: 0 auto;
           margin-top: 10px; 
-          flex-wrap: wrap; 
         }
         .kutunun-ici {
           min-width: 100%;
+          padding: 16px;
           height: auto;
-        }
-
-        .label-container, 
-        .control-container {
-          flex-wrap: wrap;
-          width: 100%;
+          flex-direction: column;
+          display: flex;
         }
 
         input, select {
           width: 100%;
         }
+        #websocketPage > div {
+        flex-direction: column !important; 
+        align-items: center !important;
+        }
+        #websocketPage > div > div:first-child {
+        width: 100% !important;
+        max-width: 600px;
+        } 
+        #websocketPage > div > div:last-child {
+        width: 100% !important;
+        min-width: unset !important;
+        margin-top: 20px;
+        }
+        #websocketPage textarea {
+        width: 100% !important;
+        box-sizing: border-box;
+      }
       @media (max-width: 527px) {
         .kaydet-btn{
           width: 100%;
@@ -406,6 +422,23 @@
 
         .top-left-label label {
           font-size: 20px;
+        }
+        #websocketPage > div {
+        flex-direction: column !important;
+        align-items: center !important;
+        }
+        #websocketPage > div > div:first-child {
+        width: 100% !important;
+        max-width: 600px;
+        }
+        #websocketPage > div > div:last-child {
+        width: 100% !important;
+        min-width: unset !important;
+        margin-top: 20px;
+        }
+        #websocketPage textarea {
+        width: 100% !important;
+        box-sizing: border-box;
         }
       }
 

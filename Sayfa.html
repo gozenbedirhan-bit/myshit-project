@@ -1,0 +1,752 @@
+      <!DOCTYPE html>
+      <html lang="tr">
+      <head>
+      <meta charset="UTF-8">
+      <title>Yudu Configuration</title>
+      <style>
+              
+      body{ 
+        background: linear-gradient(135deg, #2c2c2c);
+        color: #eaeaea;
+        font-family: 'Segoe UI', sans-serif; 
+        overflow-x:hidden;
+      } 
+      img
+      { 
+        font-size: 14px;
+        width: 120px; 
+        height: auto; 
+        margin-bottom: 20px; 
+        margin-left: 35px;
+      } 
+      nav{
+        width: 190px; 
+        background: #2c2c2c;
+        box-shadow: 2px 0 10px rgba(15, 15, 15, 0.4);
+        color: rgb(255, 255, 255); 
+        height: 100vh; 
+        padding: 10px; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        transition: left 0.3s ease;
+      } 
+      nav ul{ 
+        background-color: #555; 
+        list-style: none; 
+        padding: 0; 
+        margin: 0; 
+      } 
+      nav ul li{ 
+        border-bottom: 1px solid #383535; 
+      } 
+      nav ul li a{ 
+        display: block;   
+        padding: 14px 20px; 
+        text-decoration: none;
+        background-color: transparent;
+        color: #d0d0d0;
+        transition: all 0.3s ease;
+      } 
+      nav ul li a:hover{ 
+        color: #fff;
+        background: #047af8;
+        padding-left: 25px;
+      } 
+      .menu-toggle{
+        display: none;
+        position: fixed;
+        top: 10px;
+        background-color: #000000;
+        color: white;
+        border: none;
+        font-size: 22px;
+        border-radius: 6px;
+        z-index: 1101;
+      }
+      main{ 
+        width: 75%;
+        max-width: 100%; 
+        height: 100%;
+        padding: 20px; 
+        margin-left: 190px;
+        box-sizing: border-box; 
+      } 
+      .version{ 
+        position: absolute; 
+        bottom: 12px; 
+        left: 70px;
+        text-align: center; 
+        font-size: 16px; 
+        color: #01BBED; 
+        padding: 25px 1px; 
+        font-weight: bold;
+        letter-spacing: 1px;
+      } 
+      .horiznotal-line{ 
+        width: 110%;
+        max-width: 1505px; 
+        height: 5px;
+        background-color: rgb(105, 101, 101); 
+        margin: 19px auto;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgb(0,0,0,0.60),0 -1px 2px rgba(255,255,255,0.1) inset;
+      } 
+      .top-left-label{
+        position: fixed; 
+        top: -7px; 
+        left: 215px; 
+        z-index: 900; 
+        position: absolute;
+      } 
+      .top-left-label label{
+        font-size: 26px;
+        font-weight: bold;
+        color: #01BBED;
+        transition: text-shadow 0.4s ease, transform 0.3s ease;
+      }
+      .top-left-label label:hover {
+        transform: scale(1.05);
+      }
+      .kutu-container{ 
+        display: flex;      
+        justify-content: flex-end;
+        align-items: stretch;
+        margin-top: -196px; 
+        margin-right: -120px; 
+      } 
+      .kutu-grup{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px ;
+      }
+      .kare-kutu{
+        width: 50%;
+        height:  auto;
+        min-height: 100px;
+        margin-left: 50px;
+        background-color: #3c3c3c;
+        border: 1px solid #444;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+        border-radius: 14px; 
+        display: flex;
+        justify-content: center; 
+      } 
+      .kare-kutu:hover {
+        transform: translateY(-3px);
+      }
+
+      .kutunun-ici{ 
+        width: 700px; 
+        height: auto;  
+        display: flex; 
+        flex-direction: column; 
+        justify-content: space-between; 
+        box-sizing: border-box; 
+      } 
+      .control-container{
+        display: flex;    
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items:stretch;
+        border-radius: 10px;
+        padding: 16px;
+        box-sizing: border-box;
+        height: auto;
+        min-height: 100px;
+        width: 100%;
+      } 
+      .control-container label{
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+      .control-container input,
+      .control-container select{
+        width: 100%;
+        padding: 9px;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+        margin-bottom: 16px;
+      }
+      input,select{
+        display: block;
+        margin-bottom: 16px;
+        width: 100%;
+        border: none;
+        background-color: #1f1f1f;
+        color: #fff;
+        border: 1px solid #666;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        padding: 6px; 
+        flex: 1; 
+        border-radius: 6px;
+      } 
+      input:focus, select:focus {
+        border-color: #047af8;
+        box-shadow: 0 0 6px #047af8;
+        outline: none;
+        width: 100%;
+        min-width: 0;
+        flex: 1 1 0;
+        box-sizing: border-box;
+      }
+
+      .sol-label{
+        text-align: left; 
+      } 
+      .sağ-label{
+        text-align: right; 
+      } 
+      .kutular{ 
+        padding: 20px;
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: space-between; 
+        gap: 20px; 
+        transition: all 0.3 ease; 
+      } 
+      .kutu{ 
+        flex: 1 1 45%; 
+        background-color:#3c3c3c; 
+        padding: 20px; 
+        border-radius: 10px;  
+        transition: all 0.3 ease; 
+      }
+      #overlay {
+        display: none;
+        position: fixed;
+        top: 0; 
+        left: 0;
+        width: 100%; 
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 100;
+        transition: opacity 0.3s ease;
+      }
+      #overlay.active {
+        display: block;
+        opacity: 1;
+      }
+      .kaydet-alani{
+        width: 90%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: -165px;
+        position: relative;
+        height: 200px;
+      }
+      .kaydet-btn{
+        position: static;
+        float: none;
+        background-color:#01BBED;
+        color: #000000;
+        border: none;
+        border-radius: 14px;
+        padding: 7px;
+        font-size: 22px;
+        font-weight:600;
+        cursor: pointer;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+        transition: all 0.3 ease;
+      }
+      .kaydet-btn:hover{
+        background:#01BBED;
+        transform: translateY(-3px) scale(1.03);
+      }
+      .kaydet-btn:active{
+        transform: translateY(1px)
+      }
+      h1{
+        color: #f0f0f0;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 20px;
+      }
+        @media (max-width:1261px) {
+        nav { 
+          position: fixed;
+          left: -200px;
+          transition: left 0.3s ease;
+        }
+
+        nav.active {
+          left: 0;
+        }
+
+        main { 
+          width: 100%;
+          margin-left: 0;
+        }
+
+        .menu-toggle {
+          display: block;
+          position: absolute;
+        }
+
+        .top-left-label { 
+          left: 40px; 
+          position: absolute;
+        }
+
+        .kutu-container { 
+          justify-content: center;
+          align-items: center;
+          margin-top: 10px; 
+          flex-wrap: wrap; 
+        }
+
+        .kare-kutu {
+          min-width: 100%;
+          height: auto;
+        }
+        .label-container, 
+        .control-container {
+          flex-wrap: wrap;
+          width: 100%;
+          height: auto;
+        }
+        .kutu-container { 
+          justify-content: center;
+          align-items: center;
+          margin-right: 0;
+          margin-top: 10px; 
+          flex-wrap: wrap; 
+        }
+        .kutunun-ici {
+          min-width: 100%;
+          height: auto;
+        }
+
+        .label-container, 
+        .control-container {
+          flex-wrap: wrap;
+          width: 100%;
+        }
+
+        input, select {
+          width: 100%;
+        }
+      @media (max-width: 527px) {
+        .kaydet-btn{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 10px; 
+          position: relative;
+        }
+        .kare-kutu {
+          width: 100%;
+          max-width: 500px;
+          margin: 0 auto 19px auto;
+          box-sizing: border-box;
+        }
+
+        .kutu-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto;
+          width: 100%;
+        }
+
+        .kutunun-ici {
+          width: 100%;
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+        }
+        .control-container {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          min-height: 90px;
+        }
+        .control-container label {
+        font-size: 13px;
+      }
+        .label-container label {
+          text-align: left;
+          font-weight: 600;
+          margin-bottom: 6px;
+          font-size: 13px;
+        }
+
+        .control-container input,
+        .control-container select {
+          width: 100%;
+          height: 38px;
+          margin-bottom: 12px;
+          box-sizing: border-box;
+        }
+
+        .top-right-buttons {
+          position: relative;
+          top: auto;
+          right: auto;
+          gap: 6px;
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .top-right-buttons button {
+          width: 100%;
+          height: 32px;
+          font-size: 15px;
+        }
+
+        .top-left-label label {
+          font-size: 20px;
+        }
+      }
+
+      }
+      </style>  
+      </head>
+      <body>
+        <div id="overlay" onclick="toggleMenu()"></div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+          <nav id="sidebar">
+              <img src="elman logo.png" alt="logo">
+              <ul>
+                  <li><a href="#" id="homeBtn">Ana Sayfa</a></li>
+                  <li><a href="#" id="websocketBtn">Web Soket</a></li>
+                  <li><a href="Cıkıs.html">Cıkış Yap</a></li>
+              </ul>
+              <div class="version">v1.0.0</div>
+          </nav>
+        <main id="mainContent">
+            <div id="yuduPage">
+              <div class="top-left-label"> 
+                <label>Yudu Configuration</label> 
+              </div>
+              <div class="kare-kutu">
+                  <div class="kutunun-ici">
+                      <div class="control-container"> 
+                        <label for="master-serino">MASTER SERİNO</label>
+                          <input type="number" id="master-serino" name="master-serino" value="1000">
+                          <label for="client-serino">CLİENT SERİNO</label>
+                          <input type="number" id="client-serino" name="client-serino" value="9999">
+                      </div>
+                  </div>
+              </div>
+              <div class="kutu-container">
+                <div class="kare-kutu">
+                  <div class="kutunun-ici">
+                    <div class="control-container">
+                      <label for="mxk">Max Kapak Acikligi</label>
+                      <input type="number" id="mxk" name="mxk" value="100">
+                      <label for=mng>Min Seviye:(Genellikle 0)</label>
+                      <input type="number" id="mng" name="mng" value="0">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+            <div class="kare-kutu">
+              <div class="kutunun-ici">
+                <div class="control-container">
+                  <label for="kkls">Kapak Kapalıykene Lazer Seviye</label>
+                  <input type="number" id="kkls" name="kkls" value="0">
+                  <label for="KpN">Kapak No</label>
+                  <input type="number" id="KpN" name="KpN" value="1">
+                </div>
+              </div>
+            </div>
+        <div class="kutu-container">
+          <div class="kare-kutu">
+            <div class="kutunun-ici">
+              <div class="control-container">
+                <label for="pcfA">PCF A</label>
+                <input type="text" id="pcfA" name="pcfA" value="0x38">
+                <label for="pcfB">PCF B</label>
+                <input type="text" id="pcfB" name="pcfB" value="0x38">
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+      <div class="kare-kutu">
+        <div class="kutunun-ici">
+          <div class="control-container">
+            <label for="pcfC">PCF C</label>
+            <input type="text" id="pcfC" name="pcfC" value="0x3A">
+            <label for="alsk">Acil Stop Kontak</label>
+            <select id="alsk" name="alsk">
+              <option value="1">NC</option>
+              <option value="2">NO</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="kutu-container">
+        <div class="kare-kutu">
+          <div class="kutunun-ici">
+            <div class="control-container">
+              <label for="alst">Alt Switch NC/NO</label>
+              <select id="alst" name="alst">
+                <option value="1">NC/NO</option>
+                <option value="2">NC/NO</option>
+              </select>
+              <label for="ütsh">Üst Switch NC/NO</label>
+              <select id="ütsh" name="ütsh">
+                <option value="1">NC/NO</option>
+                <option value="2">NC/NO</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="kare-kutu">
+        <div class="kutunun-ici">
+          <div class="control-container">
+            <label for="mf3sr">Mesafe3 Sensor 420/240</label>
+            <select id="mf3sr" name="mf3sr">
+              <option value="1">20-4 mAh</option>
+              <option value="2">4-20 mAh</option>
+            </select>
+            <label for="snte">Sensor type</label>
+            <select id="snte" name="snte">
+              <option value="1">Encoder</option>
+              <option value="2">Lazer</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="kutu-container">
+        <div class="kare-kutu">
+          <div class="kutunun-ici">
+            <div class="control-container">
+              <label for="mf3srte">Mesafe3 Sensor Type</label>
+              <select id="mf3srte" name="mf3srte">
+                <option value="1">DT50</option>
+                <option value="2">DT35</option>
+                <option value="3">Encoder</option>
+              </select>
+              <label for="dbrsh">Debbugger Lazer</label>
+              <select for="dbrsh" name="dbrsh">
+                <option value="1">Sensor Var</option>
+                <option value="2">Sensor Yok</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="kare-kutu">
+        <div class="kutunun-ici">
+          <div class="control-container">
+            <label for="dbrsh">Debbugger Switch</label>
+              <select for="dbrsh" name="dbrsh">
+                <option value="1">Switchler Var</option>
+                <option value="2">Switchler Yok</option>
+              </select>
+              <label for="dbtk">Debbugger Termik</label>
+              <select id="dbtk" name="dbtk">
+                <option value="1">Termik Var</option>
+                <option value="2">Termik Yok</option>
+              </select>
+          </div>  
+        </div>
+      </div>
+      <div class="kutu-container">
+        <div class="kare-kutu">
+          <div class="kutunun-ici">
+            <div class="control-container">
+              <label for="dbgaclsp">Debugger Acil Stop</label>
+            <select id="dbgaclsp" name="dbgaclsp">
+              <option value="1">Acil Stop Takili</option>
+              <option value="2">Acil Stop Yok</option>
+            </select>
+            <label for="dbgmlsi">Debugger Meşgul Sinyali</label>
+            <select id="dbgmlsi" name="dbgmlsi">
+              <option value="1">Mesgul Sinyali Olsun  </option>
+              <option value="2">Mesgul Sinyali Olmasın</option>
+            </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="kare-kutu">
+        <div class="kutunun-ici">
+          <div class="control-container">
+            <label for="dbgacbn">Debugger Automatic Button</label>
+            <select id="dbgacbn" name="dbgacbn">
+              <option value="1">Manuel/Auto Butonu Var</option>
+              <option value="2">Manuel/Auto Butonu Yok</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="kaydet-alani">
+        <button class="kaydet-btn">Kaydet</button>
+      </div>
+    </div>
+  </div>
+<div id="websocketPage" style="display: none;">
+  <h1 style="color:#01BBED; margin-bottom: 20px;">WebSocket</h1>
+  <div style="
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap:25px; 
+  width: 100%;
+  ">
+  <div style="
+  width: 480px; 
+  background-color: #2a2a2a; 
+  border-radius: 16px; 
+  padding: 20px; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  flex-shrink: 0;
+  ">
+  <h2 style="
+  color: #00aaff; 
+  margin-bottom: 15px;
+  "
+  >WebSocket Bağlantısı</h2>
+
+    <label style="color: #ccc;">WS URL</label>
+    <input 
+    type="text" 
+    placeholder="http://192.168.5.1/ws" 
+    style="
+    width: 100%; 
+    background: #111; 
+    color: #fff; 
+    border: none; 
+    border-radius: 6px; 
+    padding: 8px; 
+    margin-bottom: 12px;">
+
+    <label style="color: #ccc;">FİLTRE</label>
+    <input 
+    type="text" 
+    placeholder="Örn: ERROR || akim"
+     style=
+     "width: 100%; 
+     background: #111; 
+     color: #fff; 
+     border: none; 
+     border-radius: 6px; 
+     padding: 8px;
+      margin-bottom: 12px;">
+
+    <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+      <button style="
+      flex: 1; 
+      background: #007bff; 
+      border: none; 
+      color: white; 
+      padding: 10px; 
+      border-radius: 6px;
+      "
+      >Bağlan</button>
+      <button style="
+      flex: 1; 
+      background: #f0ad4e; 
+      border: none; 
+      color: white;
+       padding: 10px; 
+       border-radius: 6px;
+       "
+       >Durdur</button>
+      <button style="
+      flex: 1; 
+      background: #444; 
+      border: none; 
+      color: white; 
+      padding: 10px; 
+      border-radius: 6px;
+      "
+      >Temizle</button>
+    </div>
+
+    <div style="
+    background: #333; 
+    border-radius: 6px; 
+    padding: 8px; 
+    color: #ccc; 
+    margin-bottom: 6px;">
+      Toplam: 0 <span style="float: right;">Gösterilen: 0</span>
+    </div>
+    <div style="
+     background: #333;
+     border-radius: 6px;
+     padding: 8px; 
+     color: #00aaff;">
+      Durum: Yeniden Bağlanıyor...
+    </div>
+  </div>
+
+  <div style="
+    flex-grow:1;
+    background-color:#2a2a2a;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 585px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    ">
+    <h2 style="color: #00aaff; margin-bottom: 19px;">Loglar</h2>
+    <textarea style="
+     width: 99%;
+     height: 237px;
+     background: #111; 
+     color: #aaa; 
+     border: none; 
+     border-radius: 6px;
+     padding: 10px;
+     resize: vertical;
+     " 
+         placeholder="WebSocket loglarını burada görebilirsiniz..."></textarea>
+       </div>
+      </div>
+     </div>
+   </div>
+  </div>
+</div>
+
+        </main> 
+          <script>  
+          function toggleMenu() {
+          document.getElementById("sidebar").classList.toggle("active");
+          }
+          function toggleMenu() {
+          document.getElementById("sidebar").classList.toggle("active");
+          document.getElementById("overlay").classList.toggle("active");
+          }
+
+          const websocketBtn=document.getElementById("websocketBtn");
+          const homeBtn=document.getElementById("homeBtn");
+          const yuduPage=document.getElementById("yuduPage");
+          const websocketPage=document.getElementById("websocketPage");
+
+          websocketBtn.addEventListener("click",function(e){
+            e.preventDefault();
+            yuduPage.style.display="none";
+            websocketPage.style.display="block";
+          });
+
+          homeBtn.addEventListener("click",function(e){
+            e.preventDefault();
+            websocketPage.style.display="none";
+            yuduPage.style.display="block";
+          });
+          
+          </script>
+      </body>
+      </html>
+
+          
